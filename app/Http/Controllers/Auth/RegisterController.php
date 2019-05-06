@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -23,6 +25,7 @@ class RegisterController extends Controller
 
     use RegistersUsers;
 
+
     /**
      * Where to redirect users after registration.
      *
@@ -39,6 +42,32 @@ class RegisterController extends Controller
     {
         $this->middleware('guest');
     }
+
+	/**
+	 * Start test register avec email
+	 * surcharge method du trait Illuminate\Foundation\Auth\RegistersUsers;
+	 */
+
+	public function register(Request $request)
+	{
+		$this->validator($request->all())->validate();
+
+		event(new Registered($user = $this->create($request->all())));
+
+
+
+		$this->guard()->login($user);
+
+		return $this->registered($request, $user)
+			?: redirect($this->redirectPath());
+	}
+
+
+	/**
+	 * END test register avec email
+	 *
+	 */
+
 
     /**
      * Get a validator for an incoming registration request.
