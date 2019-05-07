@@ -27,7 +27,7 @@ class UsersController extends Controller
 	public function  update(Request $request){
 		$user =  Auth::user();
 		$this->validate($request,[
-			'name' => "required|unique:users,email,{$user->id}|min:2"
+			'name' => "required|unique:users,name,{$user->id}|min:2"
 		]);
 
 		$user->update($request->only('name', 'firstname', 'lastname'));
