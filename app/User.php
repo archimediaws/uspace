@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'firstname', 'lastname'
+        'name', 'email', 'password', 'firstname', 'lastname', 'avatar'
     ];
 
     /**
@@ -37,4 +37,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    /**
+     * set avatar
+     */
+
+    public function setAvatarAttribute($avatar) {
+
+    	if(is_object($avatar)) {
+		    $avatar->move( public_path() . "/img/avatars/", "{$this->id}.jpg" );
+	    }
+    }
 }

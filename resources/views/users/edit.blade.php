@@ -9,7 +9,7 @@
                 <div class="card-header">{{ __('Mon profil') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('profil', $user->id) }}">
+                    <form method="POST" action="{{ route('profil', $user->id) }}" enctype="multipart/form-data">
                         @csrf
                         {{--@method('PUT')--}}
 
@@ -44,7 +44,7 @@
 
 
                         <div class="form-group row">
-                            <label for="firstname" class="col-md-4 col-form-label text-md-right">{{ __('prenom') }}</label>
+                            <label for="firstname" class="col-md-4 col-form-label text-md-right">{{ __('Prenom') }}</label>
 
                             <div class="col-md-6">
                                 <input id="firstname" type="text" class="form-control" name="firstname" value="{{$user->firstname}}">
@@ -54,7 +54,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="lastname" class="col-md-4 col-form-label text-md-right">{{ __('nom') }}</label>
+                            <label for="lastname" class="col-md-4 col-form-label text-md-right">{{ __('Nom') }}</label>
 
                             <div class="col-md-6">
                                 <input id="lastname" type="text" class="form-control" name="lastname" value="{{$user->lastname}}">

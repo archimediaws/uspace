@@ -25,12 +25,15 @@ class UsersController extends Controller
     }
 
 	public function  update(Request $request){
+//		dd($request->all());
+
 		$user =  Auth::user();
 		$this->validate($request,[
-			'name' => "required|unique:users,name,{$user->id}|min:2"
+			'name' => "required|unique:users,name,{$user->id}|min:2",
+			'avatar' => 'image'
 		]);
 
-		$user->update($request->only('name', 'firstname', 'lastname'));
+		$user->update($request->only('name', 'firstname', 'lastname', 'avatar'));
 		return redirect()->back()->with('success', 'Votre profil a bien été modifié !');
 	}
 
