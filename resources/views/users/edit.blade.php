@@ -20,9 +20,8 @@
                                 @if($user->avatar)
                                    {{--@dd($user->avatar)--}}
                                     <img src="{{$user->avatar}}"/>
-                                    @else
-                                    <img src="{{$user->avatar}}"/>
-                                    <img src=""/>
+                                    {{--@else--}}
+                                    {{--<img src="{{$user->avatar}}"/>--}}
                                 @endif
                                 <input id="avatar" type="file" class="form-control" name="avatar"  >
 
