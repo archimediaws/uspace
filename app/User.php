@@ -2,11 +2,17 @@
 
 namespace App;
 
+
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\ImageManagerStatic;
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+/**
+ * @property mixed $attributes
+ */
 class User extends Authenticatable
 {
     use HasApiTokens, Notifiable;
@@ -39,14 +45,39 @@ class User extends Authenticatable
     ];
 
 
-    /**
+	/**
+	 * get avatar
+	 */
+	public function getAvatarAttribute($avatar) {
+
+		if($avatar){
+
+		return asset("storage/img/avatars/{$this->id}.jpg");
+
+		}
+
+		return asset('img/avatar_default.png');
+
+
+	}
+
+
+
+	/**
      * set avatar
      */
 
     public function setAvatarAttribute($avatar) {
 
     	if(is_object($avatar)) {
-		    $avatar->move( public_path() . "/img/avatars/", "{$this->id}.jpg" );
+
+    		$img = ImageManagerStatic::make($avatar)->fit(150,150)->stream('jpg',90);
+			  Storage::put("public/img/avatars/{$this->id}.jpg", $img, 'public');
+			  $this->attributes['avatar'] = true;
+
+//			  (public_path() . "/img/avatars/", "{$this->id}.jpg");
+//			    $avatar->move( public_path() . "/img/avatars/", "{$this->id}.jpg" );
+
 	    }
     }
 }

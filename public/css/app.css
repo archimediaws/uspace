@@ -10670,6 +10670,10 @@ a.text-dark:focus {
   overflow: hidden;
 }
 
+.avatarimage img {
+  border-radius: 50%;
+}
+
 .bg-primary .navbar-nav .active > .nav-link {
   color: #00bc8c !important;
 }
