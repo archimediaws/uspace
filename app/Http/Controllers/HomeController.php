@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 
 class HomeController extends Controller
@@ -25,7 +26,9 @@ class HomeController extends Controller
     public function index()
     {
 	    $title = "Bienvenue sur compte Uspace";
-	    return view('home', ['title' => $title]);
+
+	    $user =  Auth::user();
+	    return view('home', compact('title', 'user'));
 
     }
 }

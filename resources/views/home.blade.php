@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">Mon Tableau de Bord</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -13,10 +13,11 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    Vous êtes connecté !
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquam aperiam at, blanditiis maxime minima tempore ullam! Accusamus consequuntur, ducimus impedit, ipsa laborum libero officiis sed sint suscipit tempore velit!
-                        </p>
+                    <p>Bienvenue <strong>{{$user->name}}</strong>,
+                        vous êtes connecté sur votre compte Uspace !
+                    </p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquam aperiam at, blanditiis maxime minima tempore ullam! Accusamus consequuntur, ducimus impedit, ipsa laborum libero officiis sed sint suscipit tempore velit!
+                    </p>
                 </div>
             </div>
         </div>
