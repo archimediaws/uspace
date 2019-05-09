@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', $title)
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -15,6 +15,8 @@
                     @endif
 
                     Vous êtes connecté !
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquam aperiam at, blanditiis maxime minima tempore ullam! Accusamus consequuntur, ducimus impedit, ipsa laborum libero officiis sed sint suscipit tempore velit!
+                        </p>
                 </div>
             </div>
         </div>

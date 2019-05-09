@@ -15,6 +15,9 @@ class UsersController extends Controller
 		$this->middleware('auth');
 
 	}
+
+
+
     public function  edit(){
 		//recup utilisateur
 		$user =  Auth::user();
