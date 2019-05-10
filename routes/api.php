@@ -17,6 +17,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::apiResource('cards', 'API\CardController');
+Route::apiResource('posts', 'API\PostController');
+
 Route::group([
 	'prefix' => 'auth'
 ], function () {
@@ -27,5 +30,8 @@ Route::group([
 	], function() {
 		Route::get('logout', 'Auth\AuthController@logout');
 		Route::get('user', 'Auth\AuthController@user');
+
 	});
 });
+
+

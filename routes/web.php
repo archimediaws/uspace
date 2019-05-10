@@ -41,6 +41,11 @@ Route::get('/profil','UsersController@edit')->name('profil');
 Route::post('/profil','UsersController@update')->name('profil');
 Route::get('a-propos', 'PagesController@about')->name('about');
 
-
-
+/*
+ * Cards
+ */
+Route::get('cards', 'API\CardController@index')->name('cards');
+Route::get('mycards', 'CardController@index')->name('mycards');
+//Route::get('mycards', 'API\CardController@getCardsByUser')->name('mycards'); // test sur API
+Route::get('mycards/{id}', 'CardController@show');
 

@@ -62,7 +62,6 @@ class User extends Authenticatable
 	}
 
 
-
 	/**
      * set avatar
      */
@@ -80,4 +79,14 @@ class User extends Authenticatable
 
 	    }
     }
+
+	/**
+	 * eloquent relation with cards
+	 */
+
+	public function cards(){
+		return $this->hasMany(Card::class);
+	}
+
+
 }
