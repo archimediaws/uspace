@@ -4,11 +4,23 @@ namespace App\Http\Controllers\API;
 
 use App\Card;
 use App\Http\Resources\Card as CardResource;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class CardController extends Controller
 {
+
+	public function __construct(){
+
+		//restriction Auth
+		$this->middleware('auth');
+
+	}
+
+
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -17,7 +29,10 @@ class CardController extends Controller
     public function index()
     {
 	    $cards = Card::get();
-	    return CardResource::collection($cards);
+	    $user =  Auth::user();
+	    $users = User::all();
+//	    return CardResource::collection($cards);
+	    return view('cards.index', compact('cards','user', 'users'));
     }
 
 
@@ -28,13 +43,14 @@ class CardController extends Controller
 	public function getCardsByUser()
 	{
 	    $cards = auth()->user()->cards;
+		$user =  Auth::user();
 
-	    return response()->json([
-		    'success' => true,
-		    'data' => $cards
-	    ]);
+//	    return response()->json([
+//		    'success' => true,
+//		    'data' => $cards
+//	    ]);
 
-
+		return view('cards.index', compact('cards', 'user'));
 	}
 
 

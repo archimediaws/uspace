@@ -2,19 +2,42 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CardController extends Controller
 {
+
+	public function __construct(){
+
+		//restriction Auth
+		$this->middleware('auth');
+
+	}
+
+
 	public function index()
 	{
 		$cards = auth()->user()->cards;
+		$user =  Auth::user();
+		$users = User::all();
 
-		return response()->json([
-			'success' => true,
-			'data' => $cards
-		]);
+//		dd($users);
+
+//		return response()->json([
+//			'success' => true,
+//			'data' => $cards
+//		]);
+
+		return view('cards.index', compact('cards', 'user', 'users'));
 	}
+
+	public function create()
+	{
+		return view('cards.create');
+	}
+
 
 	public function show($id)
 	{
@@ -43,6 +66,7 @@ class CardController extends Controller
 		$card = new Card();
 		$card->title = $request->title;
 		$card->contenu = $request->contenu;
+		$card->user_id = auth()->id();
 
 		if (auth()->user()->cards()->save($card))
 			return response()->json([

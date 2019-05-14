@@ -37,15 +37,34 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+/*
+ * Profil
+ */
 Route::get('/profil','UsersController@edit')->name('profil');
 Route::post('/profil','UsersController@update')->name('profil');
+
+/*
+ * Pages
+ */
+
 Route::get('a-propos', 'PagesController@about')->name('about');
 
 /*
  * Cards
  */
-Route::get('cards', 'API\CardController@index')->name('cards');
-Route::get('mycards', 'CardController@index')->name('mycards');
-//Route::get('mycards', 'API\CardController@getCardsByUser')->name('mycards'); // test sur API
-Route::get('mycards/{id}', 'CardController@show');
+Route::resource('cards', 'CardController');
+
+//Route::get('cards', 'CardController@index')->name('cards');
+//Route::get('cards/{id}', 'CardController@show');
+
+
+/* Recup API Cards */
+Route::get('allcards', 'API\CardController@index')->name('allcards');
+Route::get('mycards', 'API\CardController@getCardsByUser')->name('mycards'); // test sur API
+
+
+
+
+
 

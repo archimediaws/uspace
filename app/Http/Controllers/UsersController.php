@@ -16,6 +16,12 @@ class UsersController extends Controller
 
 	}
 
+	private function getUsers(){
+
+
+
+	}
+
 
 
     public function  edit(){

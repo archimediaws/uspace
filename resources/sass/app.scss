@@ -12,11 +12,42 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
+// Surcharge Steph
+
+// Profil
+
 .avatar input {
   overflow: hidden;
 }
 .avatarimage img{
   border-radius: 50%;
+
+}
+
+// Cards
+.card {
+  border-radius: 1rem;
+}
+
+.card-margin-top {
+  margin-top: 10px;
+}
+
+.card-header:first-child {
+  border-radius: calc(1rem - 1px) calc(1rem - 1px) 0 0;
+}
+
+.card-header button.btn-lg{
+    padding: 0.2rem 0.5rem;
+
+  }
+
+.card-btn{
+  padding: 10px;
+
+  .btn a , form button.btn{
+    border-radius: 0.5rem;
+  }
 }
 
 // Darkly 4.3.1

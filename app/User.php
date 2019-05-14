@@ -80,6 +80,7 @@ class User extends Authenticatable
 	    }
     }
 
+
 	/**
 	 * eloquent relation with cards
 	 */

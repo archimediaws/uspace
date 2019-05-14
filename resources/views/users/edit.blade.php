@@ -19,7 +19,7 @@
                             <div class="col-md-6 avatar avatarimage">
                                 @if($user->avatar)
                                    {{--@dd($user->avatar)--}}
-                                    <img src="{{$user->avatar}}"/>
+                                    <p class="text-center"> <img src="{{$user->avatar}}"/></p>
                                     {{--@else--}}
                                     {{--<img src="{{$user->avatar}}"/>--}}
                                 @endif

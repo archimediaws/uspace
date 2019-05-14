@@ -10674,6 +10674,32 @@ a.text-dark:focus {
   border-radius: 50%;
 }
 
+.card {
+  border-radius: 1rem;
+}
+
+.card-margin-top {
+  margin-top: 10px;
+}
+
+.card-header:first-child {
+  border-radius: calc(1rem - 1px) calc(1rem - 1px) 0 0;
+}
+
+.card-header button.btn-lg,
+.card-header .btn-group-lg > button.btn {
+  padding: 0.2rem 0.5rem;
+}
+
+.card-btn {
+  padding: 10px;
+}
+
+.card-btn .btn a,
+.card-btn form button.btn {
+  border-radius: 0.5rem;
+}
+
 .bg-primary .navbar-nav .active > .nav-link {
   color: #00bc8c !important;
 }

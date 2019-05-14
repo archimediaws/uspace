@@ -64,10 +64,15 @@
                                        {{ __('Mon Profil') }}
                                    </a>
 
-                                   <a class="dropdown-item" href="{{ route('mycards') }}">
+                                   <a class="dropdown-item" href="{{ route('cards.index') }}">
                                        {{ __('Mes Cartes') }}
                                    </a>
-
+                                   <a class="dropdown-item" href="{{ route('mycards') }}">
+                                       {{ __('mes Cartes API') }}
+                                   </a>
+                                   <a class="dropdown-item" href="{{ route('allcards') }}">
+                                       {{ __('Toutes les Cartes API') }}
+                                   </a>
                                    <a class="dropdown-item" href="{{ route('about') }}">
                                        {{ __('A propos') }}
                                    </a>
