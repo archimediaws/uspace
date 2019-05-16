@@ -10,31 +10,20 @@ class UsersController extends Controller
 {
 
 	public function __construct(){
-
 		//restriction Auth
 		$this->middleware('auth');
-
-	}
-
-	private function getUsers(){
-
-
 
 	}
 
 
 
     public function  edit(){
-		//recup utilisateur
 		$user =  Auth::user();
-//	    var_dump($user);
-//	    die();
 		return view('users.edit', compact('user'));
 
     }
 
 	public function  update(Request $request){
-//		dd($request->all());
 
 		$user =  Auth::user();
 		$this->validate($request,[

@@ -19,7 +19,7 @@ class CreateCardsTable extends Migration
             $table->timestamps();
             $table->string('title');
             $table->string("content");
-
+	        $table->boolean('fimg')->default(false);
 	        $table->foreign('user_id')
 	              ->references('id')
 	              ->on('users');

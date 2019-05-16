@@ -74,15 +74,13 @@ class User extends Authenticatable
 			  Storage::put("public/img/avatars/{$this->id}.jpg", $img, 'public');
 			  $this->attributes['avatar'] = true;
 
-//			  (public_path() . "/img/avatars/", "{$this->id}.jpg");
-//			    $avatar->move( public_path() . "/img/avatars/", "{$this->id}.jpg" );
 
 	    }
     }
 
 
 	/**
-	 * eloquent relation with cards
+	 * eloquent relation with cards --> get the cards for the user
 	 */
 
 	public function cards(){

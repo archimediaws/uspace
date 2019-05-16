@@ -67,6 +67,10 @@
                                    <a class="dropdown-item" href="{{ route('cards.index') }}">
                                        {{ __('Mes Cartes') }}
                                    </a>
+                                   <a class="dropdown-item" href="{{ route('cards.create') }}">
+                                       {{ __('Ajouter une Carte') }}
+                                   </a>
+
                                    <a class="dropdown-item" href="{{ route('mycards') }}">
                                        {{ __('mes Cartes API') }}
                                    </a>

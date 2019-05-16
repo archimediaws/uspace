@@ -11,28 +11,32 @@ use Illuminate\Support\Facades\Auth;
 
 class CardController extends Controller
 {
+	public $users;
+	private $apiflag = true;
 
 	public function __construct(){
-
 		//restriction Auth
 		$this->middleware('auth');
-
+		$this->users = User::all();
 	}
 
 
 
 	/**
 	 * Display a listing of the resource.
-	 *
+	 * @var $flag indicate data from API Route
 	 * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
 	 */
     public function index()
     {
 	    $cards = Card::get();
-	    $user =  Auth::user();
-	    $users = User::all();
+	    $user = Auth::user();
+		$users =  $this->users;
+		$apiflag = $this->apiflag;
+
 //	    return CardResource::collection($cards);
-	    return view('cards.index', compact('cards','user', 'users'));
+
+	    return view('cards.index', compact('cards','user', 'users', 'apiflag'));
     }
 
 
@@ -43,14 +47,15 @@ class CardController extends Controller
 	public function getCardsByUser()
 	{
 	    $cards = auth()->user()->cards;
-		$user =  Auth::user();
-
+		$user = Auth::user();
+		$users = $this->users;
+		$apiflag = false;
 //	    return response()->json([
 //		    'success' => true,
 //		    'data' => $cards
 //	    ]);
 
-		return view('cards.index', compact('cards', 'user'));
+		return view('cards.index', compact('cards', 'user', 'users', 'apiflag'));
 	}
 
 

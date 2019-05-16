@@ -10700,6 +10700,10 @@ a.text-dark:focus {
   border-radius: 0.5rem;
 }
 
+.fimg p img {
+  width: 100%;
+}
+
 .bg-primary .navbar-nav .active > .nav-link {
   color: #00bc8c !important;
 }
