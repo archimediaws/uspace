@@ -15,8 +15,8 @@ class CardController extends Controller
 	private $apiflag = true;
 
 	public function __construct(){
-		//restriction Auth
-		$this->middleware('auth');
+//		//restriction Auth
+//		$this->middleware('auth');
 		$this->users = User::all();
 	}
 
@@ -38,6 +38,18 @@ class CardController extends Controller
 
 	    return view('cards.index', compact('cards','user', 'users', 'apiflag'));
     }
+
+	public function apiAllcards()
+	{
+		$cards = Card::get();
+//		$user = Auth::user();
+//		$users =  $this->users;
+//		$apiflag = $this->apiflag;
+
+		return CardResource::collection($cards);
+
+//	    return view('cards.index', compact('cards','user', 'users', 'apiflag'));
+	}
 
 
 	/**

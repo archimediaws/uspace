@@ -17,7 +17,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('cards', 'API\CardController');
+Route::apiResource('apicards', 'API\CardController');
+Route::get('apiallcards', 'API\CardController@apiAllcards');
 Route::apiResource('posts', 'API\PostController');
 
 Route::group([
