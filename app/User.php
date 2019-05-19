@@ -80,12 +80,17 @@ class User extends Authenticatable
 
 
 	/**
-	 * eloquent relation with cards --> get the cards for the user
+	 * eloquent relation
+	 * cards --> get the cards for the user
+	 * posts --> get the posts for the user
 	 */
 
 	public function cards(){
 		return $this->hasMany(Card::class);
 	}
 
+	public function posts(){
+		return $this->hasMany(Post::class);
+	}
 
 }

@@ -82,6 +82,9 @@
 
             <div class="content">
                 <div class="title m-b-md">
+                    @if($user)
+                    <h1>{{$user->name}}</h1>
+                    @endif
                     <h3 class="flex-center">Bienvenue sur </h3>
                     Uspace
                 </div>

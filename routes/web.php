@@ -28,14 +28,12 @@
 //	});
 //});
 
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/', 'WelcomeController@index')->name('welcome');
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 
 /*
@@ -58,10 +56,18 @@ Route::resource('cards', 'CardController');
 //Route::get('cards', 'CardController@index')->name('cards');
 //Route::get('cards/{id}', 'CardController@show');
 
-
 /* Recup API Cards */
 Route::get('allcards', 'API\CardController@index')->name('allcards');
 Route::get('mycards', 'API\CardController@getCardsByUser')->name('mycards'); // test sur API
+
+/*
+ * Posts
+ */
+Route::resource('posts', 'PostController');
+Route::get('allposts', 'PostController@allposts')->name('allposts');
+
+
+
 
 
 

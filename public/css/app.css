@@ -10704,6 +10704,14 @@ a.text-dark:focus {
   width: 100%;
 }
 
+.padding-img-post {
+  padding: 10px;
+}
+
+.post-margin {
+  margin-bottom: 10px;
+}
+
 .bg-primary .navbar-nav .active > .nav-link {
   color: #00bc8c !important;
 }

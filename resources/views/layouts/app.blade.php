@@ -63,7 +63,7 @@
                                    <a class="dropdown-item" href="{{ route('profil') }}">
                                        {{ __('Mon Profil') }}
                                    </a>
-
+                                   <hr>
                                    <a class="dropdown-item" href="{{ route('cards.index') }}">
                                        {{ __('Mes Cartes') }}
                                    </a>
@@ -72,11 +72,25 @@
                                    </a>
 
                                    <a class="dropdown-item" href="{{ route('mycards') }}">
-                                       {{ __('mes Cartes API') }}
+                                       {{ __('Mes Cartes API') }}
                                    </a>
                                    <a class="dropdown-item" href="{{ route('allcards') }}">
                                        {{ __('Toutes les Cartes API') }}
                                    </a>
+                                   <hr>
+                                   <a class="dropdown-item" href="{{ route('posts.index') }}">
+                                       {{ __('Mes Articles') }}
+                                   </a>
+
+                                   <a class="dropdown-item" href="{{ route('posts.create') }}">
+                                       {{ __('Créer un Article') }}
+                                   </a>
+
+                                   <a class="dropdown-item" href="{{ route('allposts') }}">
+                                       {{ __('Tous les Articles') }}
+                                   </a>
+
+                                   <hr>
                                    <a class="dropdown-item" href="{{ route('about') }}">
                                        {{ __('A propos') }}
                                    </a>

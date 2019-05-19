@@ -103,7 +103,16 @@ class CardController extends Controller
 
 	}
 
+	/**
+	 * @param Request $request
+	 * @param $id
+	 *
+	 * @return $this|\Illuminate\Http\JsonResponse
+	 * @throws \Illuminate\Validation\ValidationException
+	 */
 	public function update(Request $request, $id) {
+
+
 		$card = auth()->user()->cards()->find( $id );
 
 		$this->validate( $request, [
@@ -143,15 +152,19 @@ class CardController extends Controller
 		$card = auth()->user()->cards()->find($id);
 
 		if (!$card) {
-			return response()->json([
-				'success' => false,
-				'message' => 'Card with id ' . $id . ' not found'
-			], 400);
+//			return response()->json([
+//				'success' => false,
+//				'message' => 'Card with id ' . $id . ' not found'
+//			], 400);
+
+
+			return redirect()->back()->with( 'success', 'Cette carte n\'existe pas !' );
 		}
 
 		if ($card->delete()) {
 
 
+			return redirect()->back()->with( 'success', 'Cette carte a été supprimée !' );
 
 //			return response()->json([
 //				'success' => true
